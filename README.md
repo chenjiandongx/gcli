@@ -1,26 +1,26 @@
 # 自动生成 .gitignore 文件命令行工具
 
-[![PyPI version](https://badge.fury.io/py/gitignore-cli.svg)](https://badge.fury.io/py/gitignore-cli) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI version](https://badge.fury.io/py/giti-cli.svg)](https://badge.fury.io/py/giti-cli) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 鉴于现在每次写 Python 项目都需要自己导入 .gitignore 文件，有点麻烦，就打包了一个命令行工具用于自动生成对应语言的 .gitignore 文件。
 
 ### 安装
 #### pip 安装
 ```
-$ pip install gitignore-cli
+$ pip install giti-cli
 ```
 
 #### 源码安装
 ```
- $ git clone https://github.com/chenjiandongx/gitignore-cli.git
- $ cd gitignore-cli
+ $ git clone https://github.com/chenjiandongx/giti-cli.git
+ $ cd giti-cli
  $ python setup.py install
 ```
 
 
 ### 用法
 ```
-C:\Users\chenjiandongx>gitignore-cli --help
+C:\Users\chenjiandongx>giti-cli --help
 usage: gitignore-cli [-l LANGUAGE] [-o OUTPUT] [-v] [-h]
 
 自动生成 .gitignore 文件命令行工具
@@ -36,3 +36,4 @@ optional arguments:
 
 ### 提供语言列表请参考 [git-ignore]() 文件夹
 
+### MIT 许可证

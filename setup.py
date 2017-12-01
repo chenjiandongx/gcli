@@ -5,10 +5,10 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='gitignore-cli',
+    name='giti-cli',
     version='0.0.1',
     description="自动生成 .gitignore 文件命令行工具",
-    url="https://github.com/chenjiandongx/gitignore-cli",
+    url="https://github.com/chenjiandongx/giti-cli",
     author="chenjiandongx",
     author_email="chenjiandongx@qq.com",
     license="MIT",
@@ -18,6 +18,6 @@ setup(
     zip_safe=False,
     include_package_data=True,
     entry_points={
-        'console_scripts':['gitignore-cli=gitignore:command_line_runner']
+        'console_scripts':['giti-cli=gitignore:command_line_runner']
     }
 )
