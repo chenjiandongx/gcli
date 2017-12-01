@@ -21,7 +21,7 @@ $ pip install giti-cli
 ### 用法
 ```
 C:\Users\chenjiandongx>giti-cli --help
-usage: gitignore-cli [-l LANGUAGE] [-o OUTPUT] [-v] [-h]
+usage: giti-cli [-l LANGUAGE] [-o OUTPUT] [-v] [-h]
 
 自动生成 .gitignore 文件命令行工具
 
@@ -34,6 +34,10 @@ optional arguments:
   -h, --help            帮助页面
 ```
 
-### 提供语言列表请参考 [git-ignore]() 文件夹
+**温馨提示：** 语言不区分大小写，如 `Python/python/PYTHON` 均可。
+
+如果是要生成 Python 对应的 .gitignore 文件的话，只需在根目录直接运行 giti-cli 即可
+
+**提供语言列表请参考 [git-ignore](https://github.com/chenjiandongx/giti-cli/tree/master/git-ignore) 文件夹**
 
 ### MIT 许可证
