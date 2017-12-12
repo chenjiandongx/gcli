@@ -1,1 +1,1 @@
-include git-ignore/*.gitignore
+include dir/*

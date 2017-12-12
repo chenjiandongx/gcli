@@ -6,7 +6,7 @@ import argparse
 
 
 HERE = os.path.join(
-    os.path.abspath(os.path.dirname(__file__)), 'git-ignore')
+    os.path.abspath(os.path.dirname(__file__)))
 
 VERSION = "VERSION 0.0.1"
 
@@ -15,16 +15,15 @@ def get_parser():
     """ 解析命令行参数
     """
     parser = argparse.ArgumentParser(
-        description='自动生成 .gitignore 文件命令行工具',
-        add_help=False)
-    parser.add_argument('-l', '--language', type=str, default="Python",
-                        help='需要生成 .gitignore 文件的语言.(默认为 Python)')
-    parser.add_argument('-o', '--output', type=str, default="",
-                        help='.gitignore 保存路径.(默认为根目录)')
+        description='Automatically generate .gitignore/readme/license file CLI')
+    parser.add_argument('-g', '--gitignore', action='store_true',
+                        help='Whether to generate .gitignore file')
+    parser.add_argument('-r', '--readme', action='store_true',
+                        help='Whether to generate README.md file')
+    parser.add_argument('-l', '--license', action='store_true',
+                        help='Whether to generate LICENSE file')
     parser.add_argument('-v', '--version', action='store_true',
-                        help='版本信息')
-    parser.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS,
-                        help='帮助页面')
+                        help='Version info')
     return parser
 
 
@@ -37,26 +36,40 @@ def command_line_runner():
     if args['version']:
         print(VERSION)
         return
-    save_file(args['language'], args['output'])
+    if not (args['license'] or args['readme'] or args['gitignore']):
+        parser.print_help()
+        return
+    save_readme(args['readme'])
+    save_license(args['license'])
+    save_gitignore(args['gitignore'])
 
 
-def save_file(language, output):
-    """ 保存文件到本地
-
-    :param language: 需要生成 .gitignore 文件的语言
-    :param output: .gitignore 保存路径
+def save_license(license):
+    """ 生成 LICENSE 文件
     """
-    language = language.title()
-    _path = os.path.join(HERE, language + '.gitignore')
-    if os.path.exists(_path):
-        with open(_path, "r") as fin:
+    if license:
+        with open(os.path.join(HERE, "dir", "LICENSE"), "r") as fin:
             content = fin.read()
-        if output:
-            os.chdir(output)
-        with open('.gitignore', "w+") as fout:
+        with open("LICENSE", "w+") as fout:
             fout.write(content)
-    else:
-        print("找不到该语言对应的 .gitignore 文件")
+
+
+def save_readme(readme):
+    """ 生成 README 文件
+    """
+    if readme:
+        open("README.md", "w+")
+
+
+def save_gitignore(gitignore):
+    """ 生成 .gitignore 文件
+    """
+    if gitignore:
+        with open(os.path.join(
+                HERE, "dir", "Python.gitignore"), "r") as fin:
+            content = fin.read()
+        with open(".gitignore", "w+") as fout:
+            fout.write(content)
 
 
 if __name__ == "__main__":
