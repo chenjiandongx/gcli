@@ -6,24 +6,24 @@ import argparse
 
 
 HERE = os.path.join(
-    os.path.abspath(os.path.dirname(__file__)))
+    os.path.abspath(os.path.dirname(__file__)), "dir")
 
-VERSION = "VERSION 0.0.1"
+VERSION = "VERSION 0.0.2"
 
 
 def get_parser():
     """ 解析命令行参数
     """
     parser = argparse.ArgumentParser(
-        description='Automatically generate .gitignore/readme/license file CLI')
+        description='Automatically generate .gitignore/readme/license file CLI.')
     parser.add_argument('-g', '--gitignore', action='store_true',
-                        help='Whether to generate .gitignore file')
+                        help='Whether to generate .gitignore file.')
     parser.add_argument('-r', '--readme', action='store_true',
-                        help='Whether to generate README.md file')
+                        help='Whether to generate README.md file.')
     parser.add_argument('-l', '--license', action='store_true',
-                        help='Whether to generate LICENSE file')
+                        help='Whether to generate LICENSE file.')
     parser.add_argument('-v', '--version', action='store_true',
-                        help='Version info')
+                        help='Version info.')
     return parser
 
 
@@ -48,7 +48,7 @@ def save_license(license):
     """ 生成 LICENSE 文件
     """
     if license:
-        with open(os.path.join(HERE, "dir", "LICENSE"), "r") as fin:
+        with open(os.path.join(HERE, "LICENSE"), "r") as fin:
             content = fin.read()
         with open("LICENSE", "w+") as fout:
             fout.write(content)
@@ -65,8 +65,7 @@ def save_gitignore(gitignore):
     """ 生成 .gitignore 文件
     """
     if gitignore:
-        with open(os.path.join(
-                HERE, "dir", "Python.gitignore"), "r") as fin:
+        with open(os.path.join(HERE, "Python.gitignore"), "r") as fin:
             content = fin.read()
         with open(".gitignore", "w+") as fout:
             fout.write(content)
