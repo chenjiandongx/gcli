@@ -20,24 +20,19 @@ $ pip install giti-cli
 
 ### 用法
 ```
-C:\Users\chenjiandongx>giti-cli --help
-usage: giti-cli [-l LANGUAGE] [-o OUTPUT] [-v] [-h]
+C:\Users\chenjiandongx>giti-cli
+usage: giti-cli [-h] [-g] [-r] [-l] [-v]
 
-自动生成 .gitignore 文件命令行工具
+Automatically generate .gitignore/readme/license file CLI.
 
 optional arguments:
-  -l LANGUAGE, --language LANGUAGE
-                        需要生成 .gitignore 文件的语言.(默认为 Python)
-  -o OUTPUT, --output OUTPUT
-                        .gitignore 保存路径.(默认为根目录)
-  -v, --version         版本信息
-  -h, --help            帮助页面
+  -h, --help       show this help message and exit
+  -g, --gitignore  Whether to generate .gitignore file.
+  -r, --readme     Whether to generate README.md file.
+  -l, --license    Whether to generate LICENSE file.
+  -v, --version    Version info.
 ```
 
-**温馨提示：** 语言不区分大小写，如 `Python/python/PYTHON` 均可。
-
-如果是要生成 Python 对应的 .gitignore 文件的话，只需在根目录直接运行 giti-cli 即可
-
-**提供语言列表请参考 [git-ignore](https://github.com/chenjiandongx/giti-cli/tree/master/git-ignore) 文件夹**
+生成的 LICENSE 为 MIT，如果一次性要生成这三个文件只需要执行 `giti-cli -grl`
 
 ### MIT 许可证
