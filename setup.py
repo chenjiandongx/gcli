@@ -5,19 +5,19 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='giti-cli',
-    version='0.0.2',
-    description="Automatically generate .gitignore/readme/license file CLI",
-    url="https://github.com/chenjiandongx/giti-cli",
+    name='gcli',
+    version='0.0.1',
+    description="Automatically generate .gitignore/readme/license files cli",
+    url="https://github.com/chenjiandongx/gcli",
     author="chenjiandongx",
     author_email="chenjiandongx@qq.com",
     license="MIT",
     packages=find_packages(),
-    py_modules=['giti'],
+    py_modules=['gcli'],
     keywords=["git", "cli"],
     zip_safe=False,
     include_package_data=True,
     entry_points={
-        'console_scripts':['giti-cli=giti:command_line_runner']
+        'console_scripts': ['gcli=gcli:command_line_runner']
     }
 )
